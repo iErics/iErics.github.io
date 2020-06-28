@@ -1,5 +1,9 @@
 /* Here is your custom css styles. */
-
+@media only screen and (max-width: 601px) {
+    .bg-cover .title {
+        font-size: 1rem;
+    }
+}
 /* hexo-filter-github-emojis */
 .github-emoji{
     height: 2em;

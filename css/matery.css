@@ -637,17 +637,18 @@ header .go-back i {
     }
 
     32% {
-        background: rgba(152, 193, 174, 0.75);
-        background: linear-gradient(45deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 100%);
-        background: -moz-linear-gradient(135deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 100%);
-    }
-
-    48% {
         background: rgba(191, 181, 215, 0.75);
         background: linear-gradient(45deg, rgba(191, 181, 215, 0.75) 0%, rgba(191, 181, 215, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(191, 181, 215, 0.75) 0%, rgba(191, 181, 215, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(191, 181, 215, 0.75) 0%, rgba(191, 181, 215, 0.65) 100%);
+        
+    }
+
+    48% {
+        background: rgba(152, 193, 174, 0.75);
+        background: linear-gradient(45deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 100%);
     }
 
     64% {
@@ -683,17 +684,17 @@ header .go-back i {
     }
 
     32% {
-        background: rgba(152, 193, 174, 0.75);
-        background: linear-gradient(45deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 0%);
-        background: -moz-linear-gradient(135deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 0%);
-        background: -webkit-linear-gradient(135deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 0%);
-    }
-
-    48% {
         background: rgba(191, 181, 215, 0.75);
         background: linear-gradient(45deg, rgba(191, 181, 215, 0.75) 0%, rgba(191, 181, 215, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(191, 181, 215, 0.75) 0%, rgba(191, 181, 215, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(191, 181, 215, 0.75) 0%, rgba(191, 181, 215, 0.65) 100%);
+    }
+
+    48% {
+        background: rgba(152, 193, 174, 0.75);
+        background: linear-gradient(45deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 0%);
+        background: -moz-linear-gradient(135deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 0%);
+        background: -webkit-linear-gradient(135deg, rgba(152, 193, 174, 0.75) 0%, rgba(152, 193, 174, 0.65) 0%);
     }
 
     64% {
