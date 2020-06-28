@@ -7,7 +7,7 @@
 }
 
 @media only screen and (max-width: 601px) {
-    header .brand-logo .logo-span {
+    .bg-cover .brand-logo .logo-span {
         font-size: 1.5rem;
     }
 }
