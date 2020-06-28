@@ -4,13 +4,13 @@
         font-size: 2rem;
     }
 
-    header .brand-logo .logo-img {
-        height: 45px;
+    .brand-logo .logo-img {
+        height: 15px;
         vertical-align: middle;
-        padding-bottom: 6px;
+        padding-bottom: 2px;
     }
     
-    header .brand-logo .logo-span {
+    .brand-logo .logo-span {
         font-size: 1rem;
     }
 }
