@@ -1,17 +1,49 @@
 /* Here is your custom css styles. */
-@media only screen and (max-width: 876px) {
+@media only screen and (max-width: 601px) {
     .bg-cover .title {
         font-size: 2rem;
     }
 
-    .brand-logo .logo-img {
-        height: 15px;
+    header .brand-logo .logo-img {
+        height: 40px;
         vertical-align: middle;
-        padding-bottom: 2px;
+        padding-bottom: 6px;
     }
     
-    .brand-logo .logo-span {
-        font-size: 1rem;
+    header .brand-logo .logo-span {
+        font-size: 1.7rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .bg-cover .title {
+        font-size: 2rem;
+    }
+
+    header .brand-logo .logo-img {
+        height: 30px;
+        vertical-align: middle;
+        padding-bottom: 6px;
+    }
+    
+    header .brand-logo .logo-span {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .bg-cover .title {
+        font-size: 1.5rem;
+    }
+
+    header .brand-logo .logo-img {
+        height: 25px;
+        vertical-align: middle;
+        padding-bottom: 3px;
+    }
+    
+    header .brand-logo .logo-span {
+        font-size: 1.2rem;
     }
 }
 
