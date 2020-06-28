@@ -1,7 +1,7 @@
 /* Here is your custom css styles. */
 @media only screen and (max-width: 601px) {
     .bg-cover .title {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 }
 /* hexo-filter-github-emojis */
