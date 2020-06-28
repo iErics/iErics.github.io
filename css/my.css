@@ -3,6 +3,10 @@
     .bg-cover .title {
         font-size: 2rem;
     }
+    
+    header .brand-logo .logo-span {
+        font-size: 1.5rem;
+
 }
 /* hexo-filter-github-emojis */
 .github-emoji{
