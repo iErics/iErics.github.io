@@ -266,7 +266,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #c6d7c7 0%, #c6d7c7 100%);
+    background-image: linear-gradient(to right, #055a5b 0%, #b7e3e4 100%);
 }
 
 .text-color {
@@ -619,7 +619,7 @@ header .go-back i {
     font-weight: 400;
 }
 
-@-webkit-keyframes rainbow {
+/*@-webkit-keyframes rainbow {
 
     0%,
     100% {
@@ -711,6 +711,7 @@ header .go-back i {
         background: -webkit-linear-gradient(135deg, rgba(25, 90, 91, 0.75) 0%, rgba(5, 90, 91, 0.65) 100%);
     }
 }
+*/
 
 .index-card {
     margin-top: -10px;
