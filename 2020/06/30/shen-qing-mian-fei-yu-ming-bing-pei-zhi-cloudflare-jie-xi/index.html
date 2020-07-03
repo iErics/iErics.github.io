@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-30
+                    2020-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    52
+                    648
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -378,7 +378,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <p>对于想要申请域名但是暂时还不打算在上面花钱的朋友们，Freenom为我们提供了最高一年的免费域名申请方案，目前可以申请<code>.tk</code> <code>.ml</code> <code>.ga</code> <code>.cf</code> <code>.gq</code>后缀的域名。</p>
+<h2 id="Freenome免费域名申请"><a href="#Freenome免费域名申请" class="headerlink" title="Freenome免费域名申请"></a>Freenome免费域名申请</h2><p>申请网址：<a href="https://www.freenom.com/zh/index.html?lang=zh" target="_blank" rel="noopener">https://www.freenom.com/zh/index.html?lang=zh</a>  </p>
+<p>进入首页会让你输入域名检查可用性，如果显示不可用字样则代表域名已被注册，或者你的IP之前在Freedom已经注册过域名，可切换代理尝试。如果显示现在注册字样则代表域名可注册，可将其加入购物车，一次可加入多个注册。   </p>
+<p><img src="https://source.thankjava.com/view/XMTWG9a" alt=""></p>
+<p>点击右上角完成开始注册，Freenom会让你输入邮箱，并给你发一封确认邮件。点击邮件里的链接继续注册，此时会让你填写详细信息，  </p>
+<p><img src="https://source.thankjava.com/view/XMTMvdu" alt=""></p>
+<p><strong>如果你没挂代理的话国家可选择中国，如果你挂了代理则国家必须和你的代理IP所在国一致，否则会一直给你返回错误信息，建议不要挂代理。</strong>  </p>
+<p>注册成功后，登录你的账号，可以在Services➡️  My Domains看到你申请的域名。点击Manage Domain   </p>
+<p><img src="https://source.thankjava.com/view/XMTMjhi" alt="">   </p>
+<p>按图中路径找到Nameserver选择Use custom nameservers   </p>
+<p><img src="https://source.thankjava.com/view/XMTLfuA" alt=""> 此网页不要关闭，后面会用到。</p>
+<h2 id="配置Cloudflare解析"><a href="#配置Cloudflare解析" class="headerlink" title="配置Cloudflare解析"></a>配置Cloudflare解析</h2><p>Cloudflare网址：<a href="https://dash.cloudflare.com/" target="_blank" rel="noopener">https://dash.cloudflare.com/</a>  网站支持中文</p>
+<p>注册Cloudflare账号并登录，在主页选择添加站点，输入你申请的域名，之后会让你选择计划，选择免费的即可。接下来Cloudflare会扫描你的站点，完成后直接点击最下方的继续，无视弹出的警告，Cloudflare会让你更改名称服务器如下图所示 </p>
+<p><img src="https://source.thankjava.com/view/XMTMm53" alt="">   </p>
+<p>复制箭头指的两个服务器的地址分别填入Freenom的Nameserver1和2里。回到Cloudflare点击页面下方确认，在新页面点击完成。完成后选择页面上方的DNS </p>
+<p><img src="https://source.thankjava.com/view/XMTT8mQ" alt="">  </p>
+<p>点击添加记录，可以先添加两条：  </p>
+<p>类型都为A，名称一个填入@，一个填入www，前者解析根域即你的域名如abc.com，后者解析<a href="http://www.abc.com" target="_blank" rel="noopener">www.abc.com</a>, IPv4填入服务器IP。  </p>
+<p>如果你想解析efg.abc.com可添加记录，类型A，名称填efg, IPv4填入服务器IP。   </p>
+<p>如果解析邮箱则类型选MX，名称填mail，IPv4填服务器IP</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -515,10 +535,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            对于想要申请域名但是暂时还不打算在上面花钱的朋友们，Freenom为我们提供了最高一年的免费域名申请方案，目前可以申请.tk .ml .ga .cf .gq后缀的域名。
+Freenome免费域名申请申请网址：https://www.free
                         
                     </div>
                     <div class="publish-info">
