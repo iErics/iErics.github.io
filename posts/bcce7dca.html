@@ -377,7 +377,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    778
+                    777
                 </div>
                 
 
@@ -408,7 +408,7 @@
 <li>可搭建tg_bot，直接发送链接给tg_bot即可进行搬运或者统计文件信息</li>
 <li>更简单的操作逻辑，tg_bot自不必说，命令行操作也被大大简化。 </li>
 </ol>
-<p>对于之前已经使用过前三种转存方案的，应当已经生成过Service Account（下简称SA）的授权文件，搭建gd_utils就会十分简单，只需在安装好gd_utils后将SA的授权文件放入gd_utils文件夹下的sa2文件夹即可。对于之前没有生成过SA授权文件的，需要增加一步生成授权文件的步骤。   </p>
+<p>对于之前已经使用过前三种转存方案的，应当已经生成过Service Account（下简称SA）的授权文件，搭建gd_utils就会十分简单，只需在安装好gd_utils后将SA的授权文件放入gd_utils目录下的sa文件夹即可。对于之前没有生成过SA授权文件的，需要增加一步生成授权文件的步骤。   </p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>VPS安装可以使用oneking大佬的一键安装脚本，已适配Ubuntu，Debian，CentOS等主流Linux系统。使用方法：只需复制以下链接到VPS命令行窗口粘贴回车即可以执行。  </p>
 <h2 id="gdutils项目转存查询部分安装"><a href="#gdutils项目转存查询部分安装" class="headerlink" title="gdutils项目转存查询部分安装"></a>gdutils项目转存查询部分安装</h2><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilscsinstall.sh)"</code></pre><p>百宝箱的转存查询部分使用一键脚本很容易成功，但是bot部分则还需要额外的设置，你需要一个域名，并且在cloudflare配置好域名解析。免费域名申请和配置cloudflare解析可以参考这篇文章：<a href="https://qianjie.space/2020/06/30/shen-qing-mian-fei-yu-ming-bing-pei-zhi-cloudflare-jie-xi/" target="_blank" rel="noopener">申请免费域名并配置Cloudflare解析</a></p>
 <p>你需要在DNS中添加一条记录，假设你申请的域名为abc.com<br>类型：A<br>名称：bot (自定义前缀)</p>
