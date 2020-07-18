@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Rclone + Aria2实现GoogleDrive，OneDrive等网盘离线下载并自动上传, 向阳而生的部落格">
+    <meta name="keywords" content="MarkDown语法, 向阳而生的部落格">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Rclone + Aria2实现GoogleDrive，OneDrive等网盘离线下载并自动上传 | 向阳而生的部落格</title>
+    <title>MarkDown语法 | 向阳而生的部落格</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Rclone + Aria2实现GoogleDrive，OneDrive等网盘离线下载并自动上传</h1>
+                    <h1 class="description center-align post-title">MarkDown语法</h1>
                 </div>
             </div>
         </div>
@@ -335,20 +335,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Google-Drive/">
-                                <span class="chip bg-color">Google Drive</span>
-                            </a>
-                        
-                            <a href="/tags/Aria2/">
-                                <span class="chip bg-color">Aria2</span>
-                            </a>
-                        
-                            <a href="/tags/OneDrive/">
-                                <span class="chip bg-color">OneDrive</span>
-                            </a>
-                        
-                            <a href="/tags/VPS/">
-                                <span class="chip bg-color">VPS</span>
+                            <a href="/tags/Markdown/">
+                                <span class="chip bg-color">Markdown</span>
                             </a>
                         
                     </div>
@@ -363,28 +351,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-16
+                    2020-06-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-17
+                    2020-07-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    628
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    2 分
                 </div>
                 
 
@@ -399,44 +387,102 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>Aria2是一款轻量下载软件，但其功能却极其强大。通过Aria2的<code>on-download-complete</code>配置项，可以在下载完成后执行一个脚本，配合Rclone将文件上传到云盘。理论上只要Rclone支持的云盘，都可以通过这种功能实现离线下载并上传。最常用的云盘是Google Drive和OneDrive，本文将以Google Drive为例来讲解一下如何实现离线下载上传。    </p>
-<p>本脚本需要运行到VPS上，其使用效果主要取决于VPS硬盘和带宽的大小以及每月可用的流量的多少。若是上传至谷歌云盘，则建议搭配谷歌云使用，谷歌云入站流量免费，上传到谷歌云盘的流量也免费，只需支付设备费用。并且谷歌云对新用户免费提供300美金的试用金额，申请可参考这篇文章：</p>
-<h1 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h1><p>要让Aria2实现离线下载上传功能需要进行一定的配置，并搭配脚本使用。幸运的是已经有项目实现了这一功能，并且配有一键安装脚本，只需执行以下代码即可运行脚本安装<a href="https://github.com/P3TERX/aria2.conf" target="_blank" rel="noopener">Aria2完美配置</a>   </p>
-<pre><code>wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh </code></pre><p>以后想要运行脚本只需输入以下代码：</p>
-<pre><code>./aria2.sh</code></pre><h1 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h1><p>可以通过Rclone官方提供的<a href="https://rclone.org/install/#script-installation" target="_blank" rel="noopener">一键安装脚本</a>进行安装。   </p>
-<p>稳定版：</p>
-<pre><code>curl https://rclone.org/install.sh | sudo bash</code></pre><p>Beta版：</p>
-<pre><code>curl https://rclone.org/install.sh | sudo bash -s beta</code></pre><p>安装完成后，输入<code>rclone config</code>命令进行配置，如果你不懂怎么配置，可以参考这篇文章来进行相应的配置。  </p>
-<h1 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h1><p>通过脚本安装的Aria2完美配置已经带有Rclone自动上传脚本，但是默认是不启动的，所以需要进行手动配置启用。</p>
-<p>输入下面的代码，打开附加脚本配置文件进行相应修改。</p>
-<pre><code>nano /root/.aria2c/script.conf</code></pre><p>配置文件有中文注释，需要根据rclone config的配置和你的需求进行修改，一般来说只需要修改如下的2部分。  </p>
-<pre><code># 网盘名称(rclone config配置时填写的 name)
-drive-name=OneDrive
-# 你要上传的网盘目录（不是下载到VPS的目录）。注释或留空为网盘根目录，末尾不要有斜杠。
-drive-dir=/DRIVEX/Download</code></pre><p>修改完成后按<code>Ctrl+O</code>后按下回车键保存修改，按<code>Ctrl+X</code>退出nano编辑器。   </p>
-<p>输入以下代码，打开Aria2配置文件进行相应修改。</p>
-<pre><code>nano /root/.aria2c/aria2.conf</code></pre><p>找到“下载完成后执行的命令”，把<code>clean.sh</code>替换为<code>upload.sh</code>。</p>
-<pre><code># 下载完成后执行的命令
-on-download-complete=/root/.aria2c/upload.sh</code></pre><p>修改完成后重启Aria2</p>
-<pre><code>service aria2 restart</code></pre><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>Aria2是后端下载工具，需要配合前端面板才能更好地交互使用。AriaNG是一个十分优秀的Aria2前端面板工具，使用方法也十分简单。   </p>
-<p>要想让AriaNG正常连接Aria2，需要VPS放行RPC端口，如果没修改过默认端口是6800，如果修改过则放行对应端口。</p>
-<h2 id="安装-amp-部署-AriaNg"><a href="#安装-amp-部署-AriaNg" class="headerlink" title="安装&amp;部署 AriaNg"></a>安装&amp;部署 AriaNg</h2><p><a href="https://github.com/mayswind/AriaNg" target="_blank" rel="noopener">AriaNg</a>可以在项目的<a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">releases</a>页面下载，其中标准版具有资源缓存和异步加载的特性，页面打开速度会更快，所以适合部署到 Web 服务器。而 AllI­nOne 版是一个单 html 文件，可以在本地直接打开使用。</p>
-<p><img src="https://p3terximg.gitee.io/post/20200124111606.png" alt=""></p>
-<p>对于懒得部署和下载的小伙伴，可以使用以下这些已经部署好的 Ar­i­aNg 网页版：</p>
+                <h2 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h2><p>使用#标记1～6级标题</p>
 <blockquote>
-<p>TIPS: HTTPS链接仅适用于 RPC 开启 TLS 的服务端，没有特殊需求使用普通链接即可。  </p>
+<p># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>##### 五级标题<br>###### 六级标题</p>
 </blockquote>
-<p>由 AriaNg 开发者提供的 Demo 页面：</p>
-<p><a href="http://ariang.mayswind.net/latest" target="_blank" rel="noopener">http://ariang.mayswind.net/latest</a></p>
-<p><a href="https://ariang.mayswind.net/latest" target="_blank" rel="noopener">https://ariang.mayswind.net/latest</a></p>
-<p>由 Aria2 完美配置、Aria2 Pro 开发者维护，Gitee Pages 提供网页服务：</p>
-<p><a href="http://p3terx.gitee.io/ariang" target="_blank" rel="noopener">http://p3terx.gitee.io/ariang</a></p>
-<p><a href="https://p3terx.gitee.io/ariang" target="_blank" rel="noopener">https://p3terx.gitee.io/ariang</a></p>
-<p>由 GitHub Pages 提供网页服务， js.org 提供域名，Cloudflare 提供 CDN 加速：</p>
-<p><a href="https://ariang.js.org/" target="_blank" rel="noopener">https://ariang.js.org/</a></p>
-<h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。</p>
-<p>比如使用 Aria2 一键安装管理脚本 增强版安装后会显示这些信息，能非常直观的进行设置。</p>
-<p><img src="https://p3terximg.gitee.io/post/20181227201030.png" alt=""></p>
+<p> 效果： </p>
+<blockquote>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></blockquote>
+<h2 id="2、段落"><a href="#2、段落" class="headerlink" title="2、段落"></a>2、段落</h2><p>段落的前后要有空行，所谓的空行是指没有文字内容。若想在段内强制换行的方式是使用<strong>两个以上</strong>空格加上回车（引用中换行省略回车）。</p>
+<h2 id="3、区块引用"><a href="#3、区块引用" class="headerlink" title="3、区块引用"></a>3、区块引用</h2><p>在段落的每一行或者只在第一行使用<code>&gt;</code>,还可以使用多个嵌套引用，如：</p>
+<p>&gt; 区块引用<br>&gt; &gt; 嵌套引用</p>
+<p>效果：</p>
+<blockquote>
+<p>区块引用</p>
+<blockquote>
+<p>嵌套引用</p>
+</blockquote>
+</blockquote>
+<h2 id="4、代码区块"><a href="#4、代码区块" class="headerlink" title="4、代码区块"></a>4、代码区块</h2><p> 代码区块的建立是在每一行加上4个空格或者一个制表符（如同写代码一样）。如：<br> 普通段落：</p>
+<p> void main( )<br> {<br>    printf(“Hello, Markdown.”);<br> }</p>
+<p> 代码区块：</p>
+<pre><code>void main()
+{
+    printf("Hello, Markdown.");
+}</code></pre><p><strong>注意</strong>：需要和普通段之间存在空行。</p>
+<h2 id="5、强调"><a href="#5、强调" class="headerlink" title="5、强调"></a>5、强调</h2><p>在强调内容两侧分别加上<code>*</code>，如：</p>
+<blockquote>
+<p>*斜体*,<br>**粗体**</p>
+</blockquote>
+<p>效果：</p>
+<blockquote>
+<p><em>斜体</em><br><strong>粗体</strong></p>
+</blockquote>
+<h2 id="6、列表"><a href="#6、列表" class="headerlink" title="6、列表"></a>6、列表</h2><p>使用<code>.</code> 、<code>+</code>或<code>-</code>标记无序列表，如：</p>
+<blockquote>
+<p>- (+*) 第一项<br>- (+*) 第二项<br>-  (+*) 第三项</p>
+</blockquote>
+<p><strong>注意</strong>：标记后面至少有一个<em>空格</em>或<em>制表符</em>。若不在引用区块内，必须和前方段落存在空行。</p>
+<p>效果：</p>
+<blockquote>
+<ul>
+<li>第一项</li>
+</ul>
+<ul>
+<li>第二项</li>
+</ul>
+<ul>
+<li>第三项</li>
+</ul>
+</blockquote>
+<p>有序号的标记方式是将上述的符号换成数字，并辅以<code>.</code>, 如：</p>
+<blockquote>
+<p>1 . 第一项<br>2 . 第二项<br>3 . 第三项</p>
+</blockquote>
+<p>效果：</p>
+<blockquote>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+</blockquote>
+<h2 id="7、分割线"><a href="#7、分割线" class="headerlink" title="7、分割线"></a>7、分割线</h2><p>分割线最常使用就是三个或以上<code>*</code>，还可以使用<code>-</code>和<code>_</code>。</p>
+<p>*<strong><strong>**</strong></strong><br>-———-<br>_<strong>____</strong></p>
+<p>效果：</p>
+<hr>
+<hr>
+<hr>
+<h2 id="8、链接"><a href="#8、链接" class="headerlink" title="8、链接"></a>8、链接</h2><p>链接可以由形式生成：<strong>行内式</strong>和<strong>参考式</strong>。</p>
+<p><strong>行内式</strong></p>
+<blockquote>
+<p>[显示文本](链接)。</p>
+</blockquote>
+<p>效果：</p>
+<blockquote>
+<p><a href="链接">显示文本</a>。</p>
+</blockquote>
+<p><strong>参考式</strong></p>
+<blockquote>
+<p>[显示文本][1]<br>[显示文本][2]</p>
+</blockquote>
+<blockquote>
+<p>[1]:链接<br>[2]:链接</p>
+</blockquote>
+<p> 效果：</p>
+<p> <a href="链接">显示文本</a><br> <a href="链接">显示文本</a></p>
+<p> <strong>注意</strong>：上述的<code>[1]链接</code>不会出现在文本中，且必须与引用显示文本间距至少一个空行</p>
+<h2 id="9、图片"><a href="#9、图片" class="headerlink" title="9、图片"></a>9、图片</h2><p>添加图片只需在链接前加一个<code>!</code>。   </p>
+<p>hexo图片格式<code>![图片描述](图片链接）</code></p>
+<h2 id="10、反斜杠-相当于反转意作用，使符号成为普通符号。"><a href="#10、反斜杠-相当于反转意作用，使符号成为普通符号。" class="headerlink" title="10、反斜杠\相当于反转意作用，使符号成为普通符号。"></a>10、反斜杠<code>\</code>相当于<strong>反转意</strong>作用，使符号成为普通符号。</h2><h2 id="11、符号”-“"><a href="#11、符号”-“" class="headerlink" title="11、符号” ` “"></a>11、符号” ` “</h2><p>起标记作用 ，如：</p>
+<blockquote>
+<p>`ctrl+a`</p>
+</blockquote>
+<p>效果：</p>
+<blockquote>
+<p><code>ctrl+a</code></p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -480,7 +526,7 @@ on-download-complete=/root/.aria2c/upload.sh</code></pre><p>修改完成后重�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ierics.github.io/2020/07/16/rclone-aria2-shi-xian-googledrive-onedrive-deng-wang-pan-chi-xian-xia-zai-bing-zi-dong-shang-chuan/">http://ierics.github.io/2020/07/16/rclone-aria2-shi-xian-googledrive-onedrive-deng-wang-pan-chi-xian-xia-zai-bing-zi-dong-shang-chuan/</a>
+                    <a href="http://ierics.github.io/posts/730dd3ed.html">http://ierics.github.io/posts/730dd3ed.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -518,20 +564,8 @@ on-download-complete=/root/.aria2c/upload.sh</code></pre><p>修改完成后重�
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Google-Drive/">
-                                    <span class="chip bg-color">Google Drive</span>
-                                </a>
-                            
-                                <a href="/tags/Aria2/">
-                                    <span class="chip bg-color">Aria2</span>
-                                </a>
-                            
-                                <a href="/tags/OneDrive/">
-                                    <span class="chip bg-color">OneDrive</span>
-                                </a>
-                            
-                                <a href="/tags/VPS/">
-                                    <span class="chip bg-color">VPS</span>
+                                <a href="/tags/Markdown/">
+                                    <span class="chip bg-color">Markdown</span>
                                 </a>
                             
                         </div>
@@ -573,70 +607,11 @@ on-download-complete=/root/.aria2c/upload.sh</code></pre><p>修改完成后重�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2020/07/16/rclone-aria2-shi-xian-googledrive-onedrive-deng-wang-pan-chi-xian-xia-zai-bing-zi-dong-shang-chuan/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Rclone + Aria2实现GoogleDrive，OneDrive等网盘离线下载并自动上传">
-                        
-                        <span class="card-title">Rclone + Aria2实现GoogleDrive，OneDrive等网盘离线下载并自动上传</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            引言Aria2是一款轻量下载软件，但其功能却极其强大。通过Aria2的on-download-complete配置项，可以在下载完成后执行一个脚本，配合Rclone将文件上传到云盘。理论上只要Rclone支持的云盘，都可以通过这种功能实现离
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            向阳而生
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Google-Drive/">
-                        <span class="chip bg-color">Google Drive</span>
-                    </a>
-                    
-                    <a href="/tags/Aria2/">
-                        <span class="chip bg-color">Aria2</span>
-                    </a>
-                    
-                    <a href="/tags/OneDrive/">
-                        <span class="chip bg-color">OneDrive</span>
-                    </a>
-                    
-                    <a href="/tags/VPS/">
-                        <span class="chip bg-color">VPS</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/30/shen-qing-mian-fei-yu-ming-bing-pei-zhi-cloudflare-jie-xi/">
+                <a href="/posts/23838298.html">
                     <div class="card-image">
                         
                         <img src="https://source.thankjava.com/view/XMPEajx" class="responsive-img" alt="申请免费域名并配置Cloudflare解析">
@@ -652,9 +627,9 @@ Freenome免费域名申请申请网址：https://www.free
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -676,6 +651,51 @@ Freenome免费域名申请申请网址：https://www.free
                     
                     <a href="/tags/Freedom/">
                         <span class="chip bg-color">Freedom</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/4a17b156.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            向阳而生
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
