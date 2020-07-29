@@ -385,7 +385,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    958
+                    1k
                 </div>
                 
 
@@ -436,16 +436,15 @@
 <ol start="2">
 <li>SSL/TLS设置为<code>灵活</code><br><img src="https://s1.ax1x.com/2020/07/29/aZiEwQ.png" alt="SSL/TLS设置">   </li>
 </ol>
-<h2 id="Tg-Bot安装"><a href="#Tg-Bot安装" class="headerlink" title="Tg_Bot安装"></a>Tg_Bot安装</h2><h3 id="安装脚本："><a href="#安装脚本：" class="headerlink" title="安装脚本："></a>安装脚本：</h3><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilsbotinstall.sh)"   </code></pre><h3 id="TG-Bot配置过程中需要输入以下四个参数："><a href="#TG-Bot配置过程中需要输入以下四个参数：" class="headerlink" title="TG_Bot配置过程中需要输入以下四个参数："></a>TG_Bot配置过程中需要输入以下四个参数：</h3><blockquote>
+<h2 id="Tg-Bot安装"><a href="#Tg-Bot安装" class="headerlink" title="Tg_Bot安装"></a>Tg_Bot安装</h2><h4 id="安装脚本："><a href="#安装脚本：" class="headerlink" title="安装脚本："></a>安装脚本：</h4><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilsbotinstall.sh)"   </code></pre><h4 id="TG-Bot配置过程中需要输入以下四个参数："><a href="#TG-Bot配置过程中需要输入以下四个参数：" class="headerlink" title="TG_Bot配置过程中需要输入以下四个参数："></a>TG_Bot配置过程中需要输入以下四个参数：</h4><blockquote>
 <p><strong>机器人TOKEN</strong>：这个在Telegram里面找<a href="t.me/botfather">@BotFather</a>注册即可获得<br><strong>Telegram用户ID</strong>：在Telegram里面向机器人<a href="t.me/userinfobot">@userinfobot</a>发送消息即可获得<br><strong>Google team drive ID</strong>：即为你转存文件的默认地址，脚本强制要求写谷歌团队盘ID<br><strong>域名</strong>：你在cloudflare上解析到VPS的域名（例如：bot.abc.com）</p>
 </blockquote>
 <p>脚本安装问题请发邮件： <a href="mailto:vitaminor@gmail.com">vitaminor@gmail.com</a></p>
-<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>命令行如何操作  </p>
-<pre><code>cd /root/gd-utils
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h5 id="命令行如何操作："><a href="#命令行如何操作：" class="headerlink" title="命令行如何操作："></a>命令行如何操作：</h5><pre><code>cd /root/gd-utils
 ./copy 源ID 目标ID -S  //转存命令
-./count ID -S  //统计命令</code></pre><p>更新代码：  </p>
-<pre><code>cd /root/gd-utils
-git pull &amp;&amp; pm2 reload server   //如果未配置机器人可以只执行git pull</code></pre><script>
+./count ID -S  //统计命令</code></pre><h5 id="更新代码："><a href="#更新代码：" class="headerlink" title="更新代码："></a>更新代码：</h5><pre><code>cd /root/gd-utils
+git pull &amp;&amp; pm2 reload server   //如果未配置机器人可以只执行git pull</code></pre><h5 id="SA不可用："><a href="#SA不可用：" class="headerlink" title="SA不可用："></a>SA不可用：</h5><p>  如果你看到如下报错，则说明有不可用的SA或者其他奇怪的东西混入sa文件夹了。<br>  <img src="https://s1.ax1x.com/2020/07/29/aZBSqP.png" alt=""><br>  此时你需要选择一个你的sa拥有阅读权限的目录ID，并执行：</p>
+<pre><code>./validate-sa.js 你的目录ID</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
