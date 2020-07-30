@@ -418,12 +418,12 @@
 </ol>
 <p>对于之前已经使用过前三种转存方案的，应当已经生成过Service Account（下简称SA）的授权文件，搭建gd_utils就会十分简单，只需在安装好gd_utils后将SA的授权文件放入gd_utils目录下的sa文件夹即可。对于之前没有生成过SA授权文件的，需要增加一步生成授权文件的步骤。  </p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><strong>生成sa及gclone搭建可参考：</strong>  <a href=""></a>   </p>
-<p>推荐使用工具：</p>
+<p>推荐SSH工具：</p>
 <blockquote>
-<p>Mac: FinalShell<br>安装链接：<a href="http://www.hostbuf.com/downloads/finalshell_install.pkg" target="_blank" rel="noopener">FinalShell</a><br>Win: Xshell + Xftp<br>安装链接：<a href="https://www.netsarang.com/zh/free-for-home-school/" target="_blank" rel="noopener">Xshell &amp; Xftp</a><br>Xshell &amp; Xftp对个人免费提供，填入姓名与邮箱即可收到下载链接</p>
+<p>FinalShell<br>Mac安装链接：<a href="http://www.hostbuf.com/downloads/finalshell_install.pkg" target="_blank" rel="noopener">FinalShell For Mac</a><br>Win安装链接：<a href="http://www.hostbuf.com/downloads/finalshell_install.exe" target="_blank" rel="noopener">FinalShell For Win</a><br>Xshell + Xftp (仅支持Win平台)<br>安装链接：<a href="https://www.netsarang.com/zh/free-for-home-school/" target="_blank" rel="noopener">Xshell &amp; Xftp</a><br>Xshell &amp; Xftp对个人免费提供，填入姓名与邮箱即可收到下载链接</p>
 </blockquote>
 <p>VPS安装可以使用oneking大佬的一键安装脚本，已适配Ubuntu，Debian，CentOS等主流Linux系统。使用方法：只需复制以下链接到VPS命令行窗口粘贴回车即可以执行。  </p>
-<h2 id="gdutils项目转存查询部分安装"><a href="#gdutils项目转存查询部分安装" class="headerlink" title="gdutils项目转存查询部分安装"></a>gdutils项目转存查询部分安装</h2><h3 id="VPS执行以下代码："><a href="#VPS执行以下代码：" class="headerlink" title="VPS执行以下代码："></a>VPS执行以下代码：</h3><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/liaojack8/gd-utils-cht/master/gdutilscsinstall.sh)"</code></pre><h3 id="上传SA授权文件至sa文件夹："><a href="#上传SA授权文件至sa文件夹：" class="headerlink" title="上传SA授权文件至sa文件夹："></a>上传SA授权文件至sa文件夹：</h3><p> 之前安装过<code>gclone</code>，<code>Autoclone</code>或者<code>FolderClone</code>的可以在相应安装目录下的<code>account</code>文件夹下找到SA授权文件，利用推荐的Shell工具可以很方便的上传到<code>gd-utils</code>的<code>sa</code>目录下。</p>
+<h2 id="gdutils项目转存查询部分安装"><a href="#gdutils项目转存查询部分安装" class="headerlink" title="gdutils项目转存查询部分安装"></a>gdutils项目转存查询部分安装</h2><h3 id="VPS执行以下代码："><a href="#VPS执行以下代码：" class="headerlink" title="VPS执行以下代码："></a>VPS执行以下代码：</h3><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilscsinstall.sh)"</code></pre><h3 id="上传SA授权文件至sa文件夹："><a href="#上传SA授权文件至sa文件夹：" class="headerlink" title="上传SA授权文件至sa文件夹："></a>上传SA授权文件至sa文件夹：</h3><p> 之前安装过<code>gclone</code>，<code>Autoclone</code>或者<code>FolderClone</code>的可以在相应安装目录下的<code>account</code>文件夹下找到SA授权文件，利用推荐的Shell工具可以很方便的上传到<code>gd-utils</code>的<code>sa</code>目录下。</p>
 <h2 id="gdutils项目一键部署脚本之“Tg机器人部分”"><a href="#gdutils项目一键部署脚本之“Tg机器人部分”" class="headerlink" title="gdutils项目一键部署脚本之“Tg机器人部分”"></a>gdutils项目一键部署脚本之“Tg机器人部分”</h2><p>百宝箱的转存查询部分使用一键脚本很容易成功，但是bot部分却比较复杂，相当一部分人会部署失败。</p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先你需要一个域名，并且在cloudflare配置好域名解析。免费域名申请和配置cloudflare解析可以参考这篇文章：<a href="https://qianjie.space/2020/06/30/shen-qing-mian-fei-yu-ming-bing-pei-zhi-cloudflare-jie-xi/" target="_blank" rel="noopener">申请免费域名并配置Cloudflare解析</a></p>
 <ol>
@@ -436,7 +436,7 @@
 <ol start="2">
 <li>SSL/TLS设置为<code>灵活</code><br><img src="https://s1.ax1x.com/2020/07/29/aZiEwQ.png" alt="SSL/TLS设置">   </li>
 </ol>
-<h2 id="Tg-Bot安装"><a href="#Tg-Bot安装" class="headerlink" title="Tg_Bot安装"></a>Tg_Bot安装</h2><h4 id="安装脚本："><a href="#安装脚本：" class="headerlink" title="安装脚本："></a>安装脚本：</h4><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/liaojack8/gd-utils-cht/master/gdutilsbotinstall.sh)"</code></pre><h4 id="TG-Bot配置过程中需要输入以下四个参数："><a href="#TG-Bot配置过程中需要输入以下四个参数：" class="headerlink" title="TG_Bot配置过程中需要输入以下四个参数："></a>TG_Bot配置过程中需要输入以下四个参数：</h4><blockquote>
+<h2 id="Tg-Bot安装"><a href="#Tg-Bot安装" class="headerlink" title="Tg_Bot安装"></a>Tg_Bot安装</h2><h4 id="安装脚本："><a href="#安装脚本：" class="headerlink" title="安装脚本："></a>安装脚本：</h4><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilsbotinstall.sh)"</code></pre><h4 id="TG-Bot配置过程中需要输入以下四个参数："><a href="#TG-Bot配置过程中需要输入以下四个参数：" class="headerlink" title="TG_Bot配置过程中需要输入以下四个参数："></a>TG_Bot配置过程中需要输入以下四个参数：</h4><blockquote>
 <p><strong>机器人TOKEN</strong>：这个在Telegram里面找<a href="https://t.me/botfather" target="_blank" rel="noopener">@BotFather</a>注册即可获得<br><strong>Telegram用户ID</strong>：在Telegram里面向机器人<a href="https://t.me/userinfobot" target="_blank" rel="noopener">@userinfobot</a>发送消息即可获得<br><strong>Google team drive ID</strong>：即为你转存文件的默认地址，脚本强制要求写谷歌团队盘ID。此ID仅作为默认转存ID，转存时你也可以选择其他添加过sa成员的团队盘作为目标盘。<br><strong>域名</strong>：你在cloudflare上解析到VPS的域名（例如：bot.abc.com）</p>
 </blockquote>
 <p>脚本安装问题请发邮件： <a href="mailto:vitaminor@gmail.com">vitaminor@gmail.com</a>  </p>
