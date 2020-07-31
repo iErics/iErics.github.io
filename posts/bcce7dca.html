@@ -378,14 +378,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-30
+                    2020-07-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -407,7 +407,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在Google Drive百宝箱即gd-utils出现以前，主流的谷歌云盘转存方案有三个，分别是FolderClone, AutoClone, gclone。严格来说gclone应当指Rclone的增强版，但是gclone搭配autoclone试下实现的autoclone增强版也被简单地称之为gclone。   </p>
+                <h1 id="引言-废话"><a href="#引言-废话" class="headerlink" title="引言(废话)"></a>引言(废话)</h1><p>在Google Drive百宝箱即gd-utils出现以前，主流的谷歌云盘转存方案有三个，分别是FolderClone, AutoClone, gclone。严格来说gclone应当指Rclone的增强版，但是gclone搭配autoclone试下实现的autoclone增强版也被简单地称之为gclone。   </p>
 <p>gd-utils由何从大佬开发而成，项目地址：<a href="https://github.com/iwestlin/gd-utils" target="_blank" rel="noopener">https://github.com/iwestlin/gd-utils</a> gd-utils最初是一个统计Google Drive文件信息的项目，后来加入转存和Telegram机器人功能，形成了现在的Google Drive百宝箱。   </p>
 <p>gd-utils相比于其他三种转存方案具有以下优势：</p>
 <ol>
@@ -417,7 +417,7 @@
 <li>更简单的操作逻辑，tg_bot自不必说，命令行操作也被大大简化。 </li>
 </ol>
 <p>对于之前已经使用过前三种转存方案的，应当已经生成过Service Account（下简称SA）的授权文件，搭建gd_utils就会十分简单，只需在安装好gd_utils后将SA的授权文件放入gd_utils目录下的sa文件夹即可。对于之前没有生成过SA授权文件的，需要增加一步生成授权文件的步骤。  </p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><strong>生成sa及gclone搭建可参考：</strong>  <a href=""></a>   </p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p><strong>生成sa及gclone搭建可参考：</strong>  <a href=""></a>   </p>
 <p>推荐SSH工具：</p>
 <blockquote>
 <p>FinalShell</p>
@@ -431,10 +431,14 @@
 <p>安装链接：<a href="https://www.netsarang.com/zh/free-for-home-school/" target="_blank" rel="noopener">Xshell &amp; Xftp</a><br>Xshell &amp; Xftp对个人免费提供，填入姓名与邮箱即可收到下载链接</p>
 </blockquote>
 </blockquote>
-<p>VPS安装可以使用oneking大佬的一键安装脚本，已适配Ubuntu，Debian，CentOS等主流Linux系统。使用方法：只需复制以下链接到VPS命令行窗口粘贴回车即可以执行。  </p>
+<p>PS: 懒得折腾的可以选择安装无需域名和nginx的分支版。优点是无需申请域名配置解析，bot更容易安装，缺点是功能更新和bug修复存在滞后，后期维护要看分支版作者的勤奋程度了。  </p>
+<p>一键安装脚本：</p>
+<pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/dissipator/gd-utils/master/gdutilsinstall.sh )"</code></pre><p>如果安装成功后bot使用时报如下错误：<br><img src="https://s1.ax1x.com/2020/07/31/al3BeP.png" alt=""><br>请执行如下命令：</p>
+<pre><code>cd /root/gd-utils
+pm2 reload index</code></pre><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>VPS安装可以使用oneking大佬的一键安装脚本，已适配Ubuntu，Debian，CentOS等主流Linux系统。使用方法：只需复制以下链接到VPS命令行窗口粘贴回车即可以执行。  </p>
 <h2 id="gdutils项目转存查询部分安装"><a href="#gdutils项目转存查询部分安装" class="headerlink" title="gdutils项目转存查询部分安装"></a>gdutils项目转存查询部分安装</h2><h3 id="VPS执行以下代码："><a href="#VPS执行以下代码：" class="headerlink" title="VPS执行以下代码："></a>VPS执行以下代码：</h3><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilscsinstall.sh)"</code></pre><h3 id="上传SA授权文件至sa文件夹："><a href="#上传SA授权文件至sa文件夹：" class="headerlink" title="上传SA授权文件至sa文件夹："></a>上传SA授权文件至sa文件夹：</h3><p> 之前安装过<code>gclone</code>，<code>Autoclone</code>或者<code>FolderClone</code>的可以在相应安装目录下的<code>account</code>文件夹下找到SA授权文件，利用推荐的Shell工具可以很方便的上传到<code>gd-utils</code>的<code>sa</code>目录下。</p>
 <h2 id="gdutils项目一键部署脚本之“Tg机器人部分”"><a href="#gdutils项目一键部署脚本之“Tg机器人部分”" class="headerlink" title="gdutils项目一键部署脚本之“Tg机器人部分”"></a>gdutils项目一键部署脚本之“Tg机器人部分”</h2><p>百宝箱的转存查询部分使用一键脚本很容易成功，但是bot部分却比较复杂，相当一部分人会部署失败。</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先你需要一个域名，并且在cloudflare配置好域名解析。免费域名申请和配置cloudflare解析可以参考这篇文章：<a href="http://localhost:4000/posts/23838298.html" target="_blank" rel="noopener">申请免费域名并配置Cloudflare解析</a></p>
+<h3 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先你需要一个域名，并且在cloudflare配置好域名解析。免费域名申请和配置cloudflare解析可以参考这篇文章：<a href="http://localhost:4000/posts/23838298.html" target="_blank" rel="noopener">申请免费域名并配置Cloudflare解析</a></p>
 <ol>
 <li>添加域名解析，假设你申请的域名为abc.com，则：<blockquote>
 <p>类型：A<br>名称：bot (自定义前缀)<br>IPv4地址：VPS公网IP<br>代理状态：橙色云（已代理）   </p>
