@@ -385,14 +385,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -459,11 +459,25 @@ pm2 reload index</code></pre>
 </blockquote>
 <p>脚本安装问题请发邮件： <a href="mailto:vitaminor@gmail.com">vitaminor@gmail.com</a>  </p>
 <p><img src="https://s1.ax1x.com/2020/07/30/anE1yR.png" alt="机器人TOKEN示例"><br><img src="https://s1.ax1x.com/2020/07/30/anANxs.png" alt="Telegram用户ID示例"><br><img src="https://s1.ax1x.com/2020/07/30/anE6Tf.png" alt="Google team drive ID示例"></p>
+<p>部署完成后给机器人发<code>/help</code>若正常返回帮助信息说明已部署成功，但是可能发生命令行操作可正常统计转存，bot却提示没有可用的SA，执行以下命令即可正常使用：</p>
+<pre><code>cd /root/gd-utils
+pm2 reload server</code></pre>
+<p>此时bot并不会开机自启，VPS重启后bot会没有反应，执行以下代码配置开机自启</p>
+<pre><code>pm2 save
+pm2 startup</code></pre>
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h5 id="命令行如何操作："><a href="#命令行如何操作：" class="headerlink" title="命令行如何操作："></a>命令行如何操作：</h5><pre><code>cd /root/gd-utils
 ./copy 源ID 目标ID -S  //转存命令
 ./count ID -S  //统计命令</code></pre>
 <h5 id="更新代码："><a href="#更新代码：" class="headerlink" title="更新代码："></a>更新代码：</h5><pre><code>cd /root/gd-utils
 git pull &amp;&amp; pm2 reload server   //如果未配置机器人可以只执行git pull</code></pre>
+<h5 id="VPS重启后Bot失效："><a href="#VPS重启后Bot失效：" class="headerlink" title="VPS重启后Bot失效："></a>VPS重启后Bot失效：</h5><p>重启后bot失效是因为没有配置自启动，若已失效，请先启动</p>
+<pre><code>##原版启动命令
+cd /root/gd-utils &amp;&amp; pm2 start server.js
+##不使用域名分支版启动命令
+cd /root/gd-utils &amp;&amp; pm2 start index.js</code></pre>
+<p>配置开机自启：</p>
+<pre><code>pm2 save
+pm2 startup</code></pre>
 <h5 id="SA不可用："><a href="#SA不可用：" class="headerlink" title="SA不可用："></a>SA不可用：</h5><p>  如果你看到如下报错，则说明有不可用的SA或者其他奇怪的东西混入sa文件夹了。<br>  <img src="https://s1.ax1x.com/2020/07/29/aZBSqP.png"><br>  此时你需要选择一个你的sa拥有阅读权限的目录ID，并执行：</p>
 <pre><code>./validate-sa.js 你的目录ID</code></pre>
 <script>
