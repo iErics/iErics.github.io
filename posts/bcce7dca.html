@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -232,7 +232,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/iErics" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -289,7 +289,7 @@
     }
 </style>
 
-<a href="https://github.com/iErics" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -323,10 +323,105 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -376,39 +471,19 @@
                 
 
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-24
-                </div>
+
                 
 
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
-                </div>
-                
 
                 
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
-                </div>
-                
-
-                
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="引言-废话"><a href="#引言-废话" class="headerlink" title="引言(废话)"></a>引言(废话)</h1><p>在Google Drive百宝箱即gd-utils出现以前，主流的谷歌云盘转存方案有三个，分别是FolderClone, AutoClone, gclone。严格来说gclone应当指Rclone的增强版，但是gclone搭配autoclone试下实现的autoclone增强版也被简单地称之为gclone。   </p>
-<p>gd-utils由何从大佬开发而成，项目地址：<a target="_blank" rel="noopener" href="https://github.com/iwestlin/gd-utils">https://github.com/iwestlin/gd-utils</a> gd-utils最初是一个统计Google Drive文件信息的项目，后来加入转存和Telegram机器人功能，形成了现在的Google Drive百宝箱。   </p>
+<p>gd-utils由何从大佬开发而成，项目地址：<a href="https://github.com/iwestlin/gd-utils" target="_blank" rel="noopener">https://github.com/iwestlin/gd-utils</a> gd-utils最初是一个统计Google Drive文件信息的项目，后来加入转存和Telegram机器人功能，形成了现在的Google Drive百宝箱。   </p>
 <p>gd-utils相比于其他三种转存方案具有以下优势：</p>
 <ol>
 <li>更快的转存速度，具体可看GitHub项目页面的对比</li>
@@ -417,19 +492,19 @@
 <li>更简单的操作逻辑，tg_bot自不必说，命令行操作也被大大简化。 </li>
 </ol>
 <p>对于之前已经使用过前三种转存方案的，应当已经生成过Service Account（下简称SA）的授权文件，搭建gd_utils就会十分简单，只需在安装好gd_utils后将SA的授权文件放入gd_utils目录下的sa文件夹即可。对于之前没有生成过SA授权文件的，需要增加一步生成授权文件的步骤。  </p>
-<p>视频版教程：<a target="_blank" rel="noopener" href="https://youtu.be/UH0CW86V2hw">https://youtu.be/UH0CW86V2hw</a><br>Telegram交流群：<a target="_blank" rel="noopener" href="https://t.me/joinchat/H5PXokpGVE7to41XsqFhsA">https://t.me/joinchat/H5PXokpGVE7to41XsqFhsA</a></p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p><strong>SA获取教程：</strong><a target="_blank" rel="noopener" href="https://qianjie.space/posts/32e66009.html">https://qianjie.space/posts/32e66009.html</a>**  <a href=""></a>   </p>
+<p>视频版教程：<a href="https://youtu.be/UH0CW86V2hw" target="_blank" rel="noopener">https://youtu.be/UH0CW86V2hw</a><br>Telegram交流群：<a href="https://t.me/joinchat/H5PXokpGVE7to41XsqFhsA" target="_blank" rel="noopener">https://t.me/joinchat/H5PXokpGVE7to41XsqFhsA</a></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p><strong>SA获取教程：</strong><a href="https://qianjie.space/posts/32e66009.html" target="_blank" rel="noopener">https://qianjie.space/posts/32e66009.html</a>**  <a href=""></a>   </p>
 <p>推荐SSH工具：</p>
 <blockquote>
 <p>FinalShell</p>
 <blockquote>
-<p>Mac安装链接：<a target="_blank" rel="noopener" href="http://www.hostbuf.com/downloads/finalshell_install.pkg">FinalShell For Mac</a><br>Win安装链接：<a target="_blank" rel="noopener" href="http://www.hostbuf.com/downloads/finalshell_install.exe">FinalShell For Win</a>  </p>
+<p>Mac安装链接：<a href="http://www.hostbuf.com/downloads/finalshell_install.pkg" target="_blank" rel="noopener">FinalShell For Mac</a><br>Win安装链接：<a href="http://www.hostbuf.com/downloads/finalshell_install.exe" target="_blank" rel="noopener">FinalShell For Win</a>  </p>
 </blockquote>
 </blockquote>
 <blockquote>
 <p>Xshell + Xftp (仅支持Win平台)  </p>
 <blockquote>
-<p>安装链接：<a target="_blank" rel="noopener" href="https://www.netsarang.com/zh/free-for-home-school/">Xshell &amp; Xftp</a><br>Xshell &amp; Xftp对个人免费提供，填入姓名与邮箱即可收到下载链接</p>
+<p>安装链接：<a href="https://www.netsarang.com/zh/free-for-home-school/" target="_blank" rel="noopener">Xshell &amp; Xftp</a><br>Xshell &amp; Xftp对个人免费提供，填入姓名与邮箱即可收到下载链接</p>
 </blockquote>
 </blockquote>
 <h1 id="无需域名版（此版本无需域名即可安装Bot）"><a href="#无需域名版（此版本无需域名即可安装Bot）" class="headerlink" title="无需域名版（此版本无需域名即可安装Bot）"></a>无需域名版（此版本无需域名即可安装Bot）</h1><p>PS: 懒得折腾的可以选择安装无需域名和nginx的分支版。优点是无需申请域名配置解析，bot更容易安装，缺点是功能更新和bug修复存在滞后，后期维护要看分支版作者的勤奋程度了。  </p>
@@ -443,7 +518,7 @@ pm2 reload index</code></pre>
 <p> 转存部分很容易安装成功，安装成功后如不需要Bot可按下Ctrl+C退出，并上传SA授权文件至sa文件夹下即可使用，如需安装Bot按下任意键开始部署，部署说明参考下文。<br> <img src="https://s1.ax1x.com/2020/08/01/a3ebQ0.png"></p>
 <h3 id="上传SA授权文件至sa文件夹："><a href="#上传SA授权文件至sa文件夹：" class="headerlink" title="上传SA授权文件至sa文件夹："></a>上传SA授权文件至sa文件夹：</h3><p> 之前安装过<code>gclone</code>，<code>Autoclone</code>或者<code>FolderClone</code>的可以在相应安装目录下的<code>account</code>文件夹下找到SA授权文件，利用推荐的Shell工具可以很方便的上传到<code>gd-utils</code>的<code>sa</code>目录下。</p>
 <h2 id="gdutils项目一键部署脚本之“Tg机器人部分”"><a href="#gdutils项目一键部署脚本之“Tg机器人部分”" class="headerlink" title="gdutils项目一键部署脚本之“Tg机器人部分”"></a>gdutils项目一键部署脚本之“Tg机器人部分”</h2><p>百宝箱的bot部分却比较复杂，相当一部分人会部署失败。</p>
-<h3 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先你需要一个域名，并且在cloudflare配置好域名解析。免费域名申请和配置cloudflare解析可以参考这篇文章：<a target="_blank" rel="noopener" href="http://localhost:4000/posts/23838298.html">申请免费域名并配置Cloudflare解析</a></p>
+<h3 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先你需要一个域名，并且在cloudflare配置好域名解析。免费域名申请和配置cloudflare解析可以参考这篇文章：<a href="http://localhost:4000/posts/23838298.html" target="_blank" rel="noopener">申请免费域名并配置Cloudflare解析</a></p>
 <ol>
 <li>添加域名解析，假设你申请的域名为abc.com，则：<blockquote>
 <p>类型：A<br>名称：bot (自定义前缀)<br>IPv4地址：VPS公网IP<br>代理状态：橙色云（已代理）   </p>
@@ -456,7 +531,7 @@ pm2 reload index</code></pre>
 </ol>
 <h2 id="Tg-Bot安装"><a href="#Tg-Bot安装" class="headerlink" title="Tg_Bot安装"></a>Tg_Bot安装</h2><h4 id="安装脚本："><a href="#安装脚本：" class="headerlink" title="安装脚本："></a>安装脚本：</h4><pre><code>bash -c "$(curl -fsSL https://raw.githubusercontent.com/vitaminx/gd-utils/master/gdutilsbotinstall.sh)"</code></pre>
 <h4 id="TG-Bot配置过程中需要输入以下四个参数："><a href="#TG-Bot配置过程中需要输入以下四个参数：" class="headerlink" title="TG_Bot配置过程中需要输入以下四个参数："></a>TG_Bot配置过程中需要输入以下四个参数：</h4><blockquote>
-<p><strong>机器人TOKEN</strong>：这个在Telegram里面找<a target="_blank" rel="noopener" href="https://t.me/botfather">@BotFather</a>注册即可获得<br><strong>Telegram用户ID</strong>：在Telegram里面向机器人<a target="_blank" rel="noopener" href="https://t.me/userinfobot">@userinfobot</a>发送消息即可获得<br><strong>Google team drive ID</strong>：即为你转存文件的默认地址，脚本强制要求写谷歌团队盘ID。此ID仅作为默认转存ID，转存时你也可以选择其他添加过sa成员的团队盘作为目标盘。<br><strong>域名</strong>：你在cloudflare上解析到VPS的域名（例如：bot.abc.com）</p>
+<p><strong>机器人TOKEN</strong>：这个在Telegram里面找<a href="https://t.me/botfather" target="_blank" rel="noopener">@BotFather</a>注册即可获得<br><strong>Telegram用户ID</strong>：在Telegram里面向机器人<a href="https://t.me/userinfobot" target="_blank" rel="noopener">@userinfobot</a>发送消息即可获得<br><strong>Google team drive ID</strong>：即为你转存文件的默认地址，脚本强制要求写谷歌团队盘ID。此ID仅作为默认转存ID，转存时你也可以选择其他添加过sa成员的团队盘作为目标盘。<br><strong>域名</strong>：你在cloudflare上解析到VPS的域名（例如：bot.abc.com）</p>
 </blockquote>
 <p>脚本安装问题请发邮件： <a href="mailto:vitaminor@gmail.com">vitaminor@gmail.com</a>  </p>
 <p><img src="https://s1.ax1x.com/2020/07/30/anE1yR.png" alt="机器人TOKEN示例"><br><img src="https://s1.ax1x.com/2020/07/30/anANxs.png" alt="Telegram用户ID示例"><br><img src="https://s1.ax1x.com/2020/07/30/anE6Tf.png" alt="Google team drive ID示例"></p>
@@ -604,6 +679,132 @@ pm2 startup</code></pre>
 
                 </div>
             </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
             
         </div>
     </div>
@@ -768,6 +969,100 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </style>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
 </main>
@@ -813,7 +1108,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="3778678"
+                   id="503838841"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'
@@ -862,33 +1157,33 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
 
 
-    <a href="mailto:wxyhugo@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="https://www.youtube.com/channel/UCN8MFKEclNpPZ3kjPLlPAMg?view_as=subscriber" class="tooltipped" target="_blank" data-tooltip="关注我的YouTube " data-position="top" data-delay="60">
-        <i class="fab fa-youtube"></i>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
     </a>
 
 
 
-    <a href="https://t.me/magicalinternet" class="tooltipped" target="_blank" data-tooltip="Telegrm交流群" data-position="top" data-delay="60">
-        <i class="fab fa-telegram-plane"></i>
-    </a>
 
 
 
 
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="我寻思，应该没人要订阅我" data-position="top" data-delay="50">
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
 
@@ -963,11 +1258,6 @@ $(function () {
     
 
     
-    <script type="text/javascript" color="0,0,255"
-        pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="99"
-        src="/libs/background/canvas-nest.js"></script>
-    
 
     
 
@@ -977,6 +1267,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":250,"height":500},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":250,"height":500},"mobile":{"show":false},"log":false});</script></body>
 
 </html>
