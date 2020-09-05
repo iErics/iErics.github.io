@@ -323,105 +323,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -477,26 +382,35 @@
                 <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>Aria2是一款轻量下载软件，但其功能却极其强大。通过Aria2的<code>on-download-complete</code>配置项，可以在下载完成后执行一个脚本，配合Rclone将文件上传到云盘。理论上只要Rclone支持的云盘，都可以通过这种功能实现离线下载并上传。最常用的云盘是Google Drive和OneDrive，本文将以Google Drive为例来讲解一下如何实现离线下载上传。    </p>
 <p>本脚本需要运行到VPS上，其使用效果主要取决于VPS硬盘和带宽的大小以及每月可用的流量的多少。若是上传至谷歌云盘，则建议搭配谷歌云使用，谷歌云入站流量免费，上传到谷歌云盘的流量也免费，只需支付设备费用。并且谷歌云对新用户免费提供300美金的试用金额，申请可参考这篇文章：</p>
 <h1 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h1><p>要让Aria2实现离线下载上传功能需要进行一定的配置，并搭配脚本使用。幸运的是已经有项目实现了这一功能，并且配有一键安装脚本，只需执行以下代码即可运行脚本安装<a href="https://github.com/P3TERX/aria2.conf" target="_blank" rel="noopener">Aria2完美配置</a>   </p>
-<pre><code>wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh </code></pre><p>以后想要运行脚本只需输入以下代码：</p>
-<pre><code>./aria2.sh</code></pre><h1 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h1><p>可以通过Rclone官方提供的<a href="https://rclone.org/install/#script-installation" target="_blank" rel="noopener">一键安装脚本</a>进行安装。   </p>
+<pre><code>wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh </code></pre>
+<p>以后想要运行脚本只需输入以下代码：</p>
+<pre><code>./aria2.sh</code></pre>
+<h1 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h1><p>可以通过Rclone官方提供的<a href="https://rclone.org/install/#script-installation" target="_blank" rel="noopener">一键安装脚本</a>进行安装。   </p>
 <p>稳定版：</p>
-<pre><code>curl https://rclone.org/install.sh | sudo bash</code></pre><p>Beta版：</p>
-<pre><code>curl https://rclone.org/install.sh | sudo bash -s beta</code></pre><p>安装完成后，输入<code>rclone config</code>命令进行配置，如果你不懂怎么配置，可以参考这篇文章来进行相应的配置。  </p>
+<pre><code>curl https://rclone.org/install.sh | sudo bash</code></pre>
+<p>Beta版：</p>
+<pre><code>curl https://rclone.org/install.sh | sudo bash -s beta</code></pre>
+<p>安装完成后，输入<code>rclone config</code>命令进行配置，如果你不懂怎么配置，可以参考这篇文章来进行相应的配置。  </p>
 <h1 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h1><p>通过脚本安装的Aria2完美配置已经带有Rclone自动上传脚本，但是默认是不启动的，所以需要进行手动配置启用。</p>
 <p>输入下面的代码，打开附加脚本配置文件进行相应修改。</p>
-<pre><code>nano /root/.aria2c/script.conf</code></pre><p>配置文件有中文注释，需要根据rclone config的配置和你的需求进行修改，一般来说只需要修改如下的2部分。  </p>
+<pre><code>nano /root/.aria2c/script.conf</code></pre>
+<p>配置文件有中文注释，需要根据rclone config的配置和你的需求进行修改，一般来说只需要修改如下的2部分。  </p>
 <pre><code># 网盘名称(rclone config配置时填写的 name)
 drive-name=OneDrive
 # 你要上传的网盘目录（不是下载到VPS的目录）。注释或留空为网盘根目录，末尾不要有斜杠。
-drive-dir=/DRIVEX/Download</code></pre><p>修改完成后按<code>Ctrl+O</code>后按下回车键保存修改，按<code>Ctrl+X</code>退出nano编辑器。   </p>
+drive-dir=/DRIVEX/Download</code></pre>
+<p>修改完成后按<code>Ctrl+O</code>后按下回车键保存修改，按<code>Ctrl+X</code>退出nano编辑器。   </p>
 <p>输入以下代码，打开Aria2配置文件进行相应修改。</p>
-<pre><code>nano /root/.aria2c/aria2.conf</code></pre><p>找到“下载完成后执行的命令”，把<code>clean.sh</code>替换为<code>upload.sh</code>。</p>
+<pre><code>nano /root/.aria2c/aria2.conf</code></pre>
+<p>找到“下载完成后执行的命令”，把<code>clean.sh</code>替换为<code>upload.sh</code>。</p>
 <pre><code># 下载完成后执行的命令
-on-download-complete=/root/.aria2c/upload.sh</code></pre><p>修改完成后重启Aria2</p>
-<pre><code>service aria2 restart</code></pre><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>Aria2是后端下载工具，需要配合前端面板才能更好地交互使用。AriaNG是一个十分优秀的Aria2前端面板工具，使用方法也十分简单。   </p>
+on-download-complete=/root/.aria2c/upload.sh</code></pre>
+<p>修改完成后重启Aria2</p>
+<pre><code>service aria2 restart</code></pre>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>Aria2是后端下载工具，需要配合前端面板才能更好地交互使用。AriaNG是一个十分优秀的Aria2前端面板工具，使用方法也十分简单。   </p>
 <p>要想让AriaNG正常连接Aria2，需要VPS放行RPC端口，如果没修改过默认端口是6800，如果修改过则放行对应端口。</p>
 <h2 id="安装-amp-部署-AriaNg"><a href="#安装-amp-部署-AriaNg" class="headerlink" title="安装&amp;部署 AriaNg"></a>安装&amp;部署 AriaNg</h2><p><a href="https://github.com/mayswind/AriaNg" target="_blank" rel="noopener">AriaNg</a>可以在项目的<a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">releases</a>页面下载，其中标准版具有资源缓存和异步加载的特性，页面打开速度会更快，所以适合部署到 Web 服务器。而 AllI­nOne 版是一个单 html 文件，可以在本地直接打开使用。</p>
-<p><img src="https://p3terximg.gitee.io/post/20200124111606.png" alt=""></p>
+<p><img src="https://p3terximg.gitee.io/post/20200124111606.png"></p>
 <p>对于懒得部署和下载的小伙伴，可以使用以下这些已经部署好的 Ar­i­aNg 网页版：</p>
 <blockquote>
 <p>TIPS: HTTPS链接仅适用于 RPC 开启 TLS 的服务端，没有特殊需求使用普通链接即可。  </p>
@@ -511,7 +425,7 @@ on-download-complete=/root/.aria2c/upload.sh</code></pre><p>修改完成后重�
 <p><a href="https://ariang.js.org/" target="_blank" rel="noopener">https://ariang.js.org/</a></p>
 <h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。</p>
 <p>比如使用 Aria2 一键安装管理脚本 增强版安装后会显示这些信息，能非常直观的进行设置。</p>
-<p><img src="https://p3terximg.gitee.io/post/20181227201030.png" alt=""></p>
+<p><img src="https://p3terximg.gitee.io/post/20181227201030.png"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -812,12 +726,12 @@ on-download-complete=/root/.aria2c/upload.sh</code></pre><p>修改完成后重�
                         <span class="chip bg-color">Google Drive</span>
                     </a>
                     
-                    <a href="/tags/%E8%B0%B7%E6%AD%8C%E4%BA%91%E7%9B%98/">
-                        <span class="chip bg-color">谷歌云盘</span>
-                    </a>
-                    
                     <a href="/tags/gclone/">
                         <span class="chip bg-color">gclone</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B0%B7%E6%AD%8C%E4%BA%91%E7%9B%98/">
+                        <span class="chip bg-color">谷歌云盘</span>
                     </a>
                     
                     <a href="/tags/Autoclone/">
@@ -922,100 +836,6 @@ Freenome免费域名申请申请网址：https://www.free
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
 
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
 
     
 
