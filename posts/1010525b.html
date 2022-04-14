@@ -409,11 +409,14 @@
                 <h3 id="rclone安装"><a href="#rclone安装" class="headerlink" title="rclone安装"></a>rclone安装</h3><p>如有问题可加入tg交流群：<a href="https://t.me/magicalinternet" target="_blank" rel="noopener">点我</a></p>
 <p>rclone安装可以使用官方提供的自动安装脚本安装。</p>
 <p>稳定版安装：</p>
-<pre><code>curl https://rclone.org/install.sh | sudo bash</code></pre>
+<pre><code>curl https://rclone.org/install.sh | sudo bash
+</code></pre>
 <p>Beta版安装：</p>
-<pre><code>curl https://rclone.org/install.sh | sudo bash -s beta</code></pre>
+<pre><code>curl https://rclone.org/install.sh | sudo bash -s beta
+</code></pre>
 <h3 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h3><p>初始化配置</p>
-<pre><code>rclone config</code></pre>
+<pre><code>rclone config
+</code></pre>
 <p>键入上面的命令并回车，会进入config配置界面：</p>
 <pre><code>Name                 Type
 ====                 ====
@@ -599,13 +602,16 @@ r) Rename remote
 c) Copy remote
 s) Set configuration password
 q) Quit config
-e/n/d/r/c/s/q&gt;q #输入q保存退出</code></pre>
+e/n/d/r/c/s/q&gt;q #输入q保存退出
+</code></pre>
 <p>配置文件config配置一次可以多处使用，以后可以将配置文件复制到其它设备直接使用</p>
 <h3 id="挂载为磁盘"><a href="#挂载为磁盘" class="headerlink" title="挂载为磁盘"></a>挂载为磁盘</h3><p>如需将云盘挂载到本地可使用下面的命令</p>
-<pre><code>rclone mount DriveName:Folder LocalFolder --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000</code></pre>
+<pre><code>rclone mount DriveName:Folder LocalFolder --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
+</code></pre>
 <p><code>DriveName</code>为初始化配置填的<code>name</code>，如本文中的<code>day</code>；<code>Folder</code>为<code>Google Drive</code>里的文件夹，可留空，留空为挂载整个网盘<code>LocalFolder</code>为VPS上的本地文件夹，网盘会被挂载于此处。</p>
 <p>查看是否挂载成功：</p>
-<pre><code>df -f  #输入此命令查看是否存在挂载的网盘，无限盘容量一般显示为1.0P或者1.5P</code></pre>
+<pre><code>df -f  #输入此命令查看是否存在挂载的网盘，无限盘容量一般显示为1.0P或者1.5P
+</code></pre>
 <h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><p>挂载的网盘重启后会失效，可使用systemd实现开机自动挂载，适用于<code>CentOS 7</code>、<code>Debian 8+</code>、<code>Ubuntu 16+</code>。</p>
 <p>创建systemd配置文件：</p>
 <pre><code>#将后面修改成你上面手动运行命令中，除了rclone的全部参数
@@ -625,15 +631,19 @@ User=root
 
 [Install]
 WantedBy=default.target
-EOF</code></pre>
+EOF
+</code></pre>
 <p>启动命令：</p>
-<pre><code>systemctl start rclone</code></pre>
+<pre><code>systemctl start rclone
+</code></pre>
 <p>设置开机自启：</p>
-<pre><code>systemctl enable rclone</code></pre>
+<pre><code>systemctl enable rclone
+</code></pre>
 <p>可能会用到的其它命令：</p>
 <pre><code>重启：systemctl restart rclone
 停止：systemctl stop rclone
-状态：systemctl status rclone</code></pre>
+状态：systemctl status rclone
+</code></pre>
 <p>如果你想挂载多个网盘，那么将<code>systemd</code>配置文件的<code>rclone.service</code>改成<code>rclone1.service</code>即可，重启动什么的同样换成<code>rclone1</code>。</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1086,7 +1096,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">向阳而生</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -1111,6 +1121,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备20020907号-1</a>
+            </span>
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">

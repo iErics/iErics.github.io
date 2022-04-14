@@ -403,15 +403,20 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="进入谷歌云实例面板"><a href="#进入谷歌云实例面板" class="headerlink" title="进入谷歌云实例面板"></a>进入谷歌云实例面板</h3><p><img src="https://s1.ax1x.com/2020/07/30/auD1hV.png"></p>
-<h3 id="切换到Roo用户"><a href="#切换到Roo用户" class="headerlink" title="切换到Roo用户"></a>切换到Roo用户</h3><pre><code>sudo -i</code></pre>
-<h3 id="修改SSH配置文件-etc-ssh-sshd-config"><a href="#修改SSH配置文件-etc-ssh-sshd-config" class="headerlink" title="修改SSH配置文件/etc/ssh/sshd_config"></a>修改SSH配置文件/etc/ssh/sshd_config</h3><pre><code>vi /etc/ssh/sshd_config</code></pre>
+<h3 id="切换到Roo用户"><a href="#切换到Roo用户" class="headerlink" title="切换到Roo用户"></a>切换到Roo用户</h3><pre><code>sudo -i
+</code></pre>
+<h3 id="修改SSH配置文件-etc-ssh-sshd-config"><a href="#修改SSH配置文件-etc-ssh-sshd-config" class="headerlink" title="修改SSH配置文件/etc/ssh/sshd_config"></a>修改SSH配置文件/etc/ssh/sshd_config</h3><pre><code>vi /etc/ssh/sshd_config
+</code></pre>
 <h4 id="修改PermitRootLogin和PasswordAuthentication为yes"><a href="#修改PermitRootLogin和PasswordAuthentication为yes" class="headerlink" title="修改PermitRootLogin和PasswordAuthentication为yes"></a>修改<code>PermitRootLogin</code>和<code>PasswordAuthentication</code>为yes</h4><pre><code># Authentication:
 PermitRootLogin yes //默认为no，需要开启root用户访问改为yes
 
 # Change to no to disable tunnelled clear text passwords
-PasswordAuthentication yes //默认为no，改为yes开启密码登陆</code></pre>
-<h3 id="给root用户设置密码"><a href="#给root用户设置密码" class="headerlink" title="给root用户设置密码"></a>给root用户设置密码</h3><pre><code>passwd root</code></pre>
-<h3 id="重启SSH服务使修改生效"><a href="#重启SSH服务使修改生效" class="headerlink" title="重启SSH服务使修改生效"></a>重启SSH服务使修改生效</h3><pre><code>/etc/init.d/ssh restart</code></pre>
+PasswordAuthentication yes //默认为no，改为yes开启密码登陆
+</code></pre>
+<h3 id="给root用户设置密码"><a href="#给root用户设置密码" class="headerlink" title="给root用户设置密码"></a>给root用户设置密码</h3><pre><code>passwd root
+</code></pre>
+<h3 id="重启SSH服务使修改生效"><a href="#重启SSH服务使修改生效" class="headerlink" title="重启SSH服务使修改生效"></a>重启SSH服务使修改生效</h3><pre><code>/etc/init.d/ssh restart
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -871,7 +876,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">向阳而生</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -896,6 +901,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备20020907号-1</a>
+            </span>
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
